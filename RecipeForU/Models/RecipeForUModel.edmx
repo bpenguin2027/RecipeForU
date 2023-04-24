@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RecipeForUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ELEMENT">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="category" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="eRECIPE">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="recipe_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="element_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="qty" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mELEMENT">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="element_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="element" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MEMBER">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="member_type" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="member_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="member_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="gender" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="birthday" Type="datetime" Nullable="false" />
+          <Property Name="occupation" Type="nvarchar" MaxLength="50" />
+          <Property Name="is_valid" Type="bit" Nullable="false" />
+          <Property Name="aka" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RECIPE">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="recipe_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="recipe_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="recipe_author" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="time" Type="datetime" Nullable="false" />
+          <Property Name="view_times" Type="int" Nullable="false" />
+          <Property Name="recipe_intro" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="recipe_cover" Type="nvarchar" MaxLength="250" />
+          <Property Name="recommended" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rMEMBER">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="member_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="recipe_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sRECIPE">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="step_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="recipe_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="step_body" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="step_cover" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityContainer Name="RecipeForUModelStoreContainer">
+          <EntitySet Name="ELEMENT" EntityType="Self.ELEMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="eRECIPE" EntityType="Self.eRECIPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mELEMENT" EntityType="Self.mELEMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MEMBER" EntityType="Self.MEMBER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RECIPE" EntityType="Self.RECIPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rMEMBER" EntityType="Self.rMEMBER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sRECIPE" EntityType="Self.sRECIPE" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RecipeForUModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RecipeForUEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ELEMENT" EntityType="RecipeForUModel.ELEMENT" />
+          <EntitySet Name="eRECIPE" EntityType="RecipeForUModel.eRECIPE" />
+          <EntitySet Name="mELEMENT" EntityType="RecipeForUModel.mELEMENT" />
+          <EntitySet Name="RECIPE" EntityType="RecipeForUModel.RECIPE" />
+          <EntitySet Name="rMEMBER" EntityType="RecipeForUModel.rMEMBER" />
+          <EntitySet Name="sRECIPE" EntityType="RecipeForUModel.sRECIPE" />
+          <EntitySet Name="MEMBER" EntityType="RecipeForUModel.MEMBER" />
+        </EntityContainer>
+        <EntityType Name="ELEMENT">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="category" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="eRECIPE">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="recipe_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="element_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="qty" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="mELEMENT">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="element_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="element" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RECIPE">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="recipe_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="recipe_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="recipe_author" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="view_times" Type="Int32" Nullable="false" />
+          <Property Name="recipe_intro" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="recipe_cover" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="recommended" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rMEMBER">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="member_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="recipe_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sRECIPE">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="step_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="recipe_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="step_body" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="step_cover" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MEMBER">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="member_type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="member_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="member_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="birthday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="occupation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="is_valid" Type="Boolean" Nullable="false" />
+          <Property Name="aka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RecipeForUModelStoreContainer" CdmEntityContainer="RecipeForUEntities">
+          <EntitySetMapping Name="ELEMENT">
+            <EntityTypeMapping TypeName="RecipeForUModel.ELEMENT">
+              <MappingFragment StoreEntitySet="ELEMENT">
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eRECIPE">
+            <EntityTypeMapping TypeName="RecipeForUModel.eRECIPE">
+              <MappingFragment StoreEntitySet="eRECIPE">
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="element_id" ColumnName="element_id" />
+                <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mELEMENT">
+            <EntityTypeMapping TypeName="RecipeForUModel.mELEMENT">
+              <MappingFragment StoreEntitySet="mELEMENT">
+                <ScalarProperty Name="element" ColumnName="element" />
+                <ScalarProperty Name="element_id" ColumnName="element_id" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECIPE">
+            <EntityTypeMapping TypeName="RecipeForUModel.RECIPE">
+              <MappingFragment StoreEntitySet="RECIPE">
+                <ScalarProperty Name="recommended" ColumnName="recommended" />
+                <ScalarProperty Name="recipe_cover" ColumnName="recipe_cover" />
+                <ScalarProperty Name="recipe_intro" ColumnName="recipe_intro" />
+                <ScalarProperty Name="view_times" ColumnName="view_times" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="recipe_author" ColumnName="recipe_author" />
+                <ScalarProperty Name="recipe_name" ColumnName="recipe_name" />
+                <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rMEMBER">
+            <EntityTypeMapping TypeName="RecipeForUModel.rMEMBER">
+              <MappingFragment StoreEntitySet="rMEMBER">
+                <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sRECIPE">
+            <EntityTypeMapping TypeName="RecipeForUModel.sRECIPE">
+              <MappingFragment StoreEntitySet="sRECIPE">
+                <ScalarProperty Name="step_cover" ColumnName="step_cover" />
+                <ScalarProperty Name="step_body" ColumnName="step_body" />
+                <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
+                <ScalarProperty Name="step_id" ColumnName="step_id" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEMBER">
+            <EntityTypeMapping TypeName="RecipeForUModel.MEMBER">
+              <MappingFragment StoreEntitySet="MEMBER">
+                <ScalarProperty Name="aka" ColumnName="aka" />
+                <ScalarProperty Name="is_valid" ColumnName="is_valid" />
+                <ScalarProperty Name="occupation" ColumnName="occupation" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="member_name" ColumnName="member_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="member_type" ColumnName="member_type" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

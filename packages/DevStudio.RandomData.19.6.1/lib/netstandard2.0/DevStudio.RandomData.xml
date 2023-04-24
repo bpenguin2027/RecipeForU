@@ -1,0 +1,1459 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevStudio.RandomData</name>
+    </assembly>
+    <members>
+        <member name="T:DevStudio.RandomData.RandomAddress">
+            <summary>
+            隨機產生地址清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomAddress.Dispose">
+            <summary>
+            解構子,實現IDisposable中的Dispose方法
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomAddress.Dispose(System.Boolean)">
+            <summary>
+            解構子
+            </summary>
+            <param name="disposing">disposing</param>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomAddress.Finalize">
+            <summary>
+            RandomAddress 解構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomAddress.#ctor">
+            <summary>
+            隨機產生地址清單建構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomAddress.#ctor(System.Int32)">
+            <summary>
+            隨機產生地址清單建構子
+            </summary>
+            <param name="dataCount">數量</param>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomAddress.DataAddressList">
+            <summary>
+            地址清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomAddress.SetRandomData(System.Int32)">
+            <summary>
+            取得隨機地址
+            </summary>
+            <param name="dataCount">數量</param>
+        </member>
+        <member name="T:DevStudio.RandomData.RandomCompanyID">
+            <summary>
+            隨機產生中文姓名清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomCompanyID.Dispose">
+            <summary>
+            解構子,實現IDisposable中的Dispose方法
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomCompanyID.Dispose(System.Boolean)">
+            <summary>
+            解構子
+            </summary>
+            <param name="disposing">disposing</param>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomCompanyID.Finalize">
+            <summary>
+            RandomCompanyID 解構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomCompanyID.#ctor">
+            <summary>
+            隨機產生中文姓名清單建構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomCompanyID.#ctor(System.Int32)">
+            <summary>
+            隨機產生中文姓名清單建構子
+            </summary>
+            <param name="dataCount">數量</param>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomCompanyID.DataCompanyIDList">
+            <summary>
+            統一編號清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomCompanyID.SetRandomData(System.Int32)">
+            <summary>
+            取得隨機統一編號
+            </summary>
+            <param name="dataCount">數量</param>
+            <returns></returns>
+        </member>
+        <member name="T:DevStudio.RandomData.RandomCompanyName">
+            <summary>
+            隨機產生公司名稱清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomCompanyName.Dispose">
+            <summary>
+            解構子,實現IDisposable中的Dispose方法
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomCompanyName.Dispose(System.Boolean)">
+            <summary>
+            解構子
+            </summary>
+            <param name="disposing">disposing</param>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomCompanyName.Finalize">
+            <summary>
+            RandomCompanyName 解構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomCompanyName.#ctor">
+            <summary>
+            隨機產生公司名稱清單建構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomCompanyName.#ctor(System.Int32)">
+            <summary>
+            取得隨機公司名稱
+            </summary>
+            <param name="dataCount">數量</param>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomCompanyName.DataCompanyNameList">
+            <summary>
+            公司名稱清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomCompanyName.DataCompanyShortNameList">
+            <summary>
+            公司簡稱清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomCompanyName.SetRandomData(System.Int32)">
+            <summary>
+            取得隨機公司名稱
+            </summary>
+            <param name="dataCount">數量</param>
+            <returns></returns>
+        </member>
+        <member name="T:DevStudio.RandomData.RandomDate">
+            <summary>
+            隨機產生日期清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomDate.Dispose">
+            <summary>
+            解構子,實現IDisposable中的Dispose方法
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomDate.Dispose(System.Boolean)">
+            <summary>
+            解構子
+            </summary>
+            <param name="disposing">disposing</param>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomDate.Finalize">
+            <summary>
+            RandomDate 解構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomDate.#ctor">
+            <summary>
+            隨機產生日期清單結構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomDate.#ctor(System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            隨機產生日期清單結構子
+            </summary>
+            <param name="dataCount">產生筆數</param>
+            <param name="startDate">開始日期</param>
+            <param name="endDate">結束日期</param>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomDate.#ctor(System.Int32,System.String,System.String)">
+            <summary>
+            隨機產生日期清單結構子
+            </summary>
+            <param name="dataCount">產生筆數</param>
+            <param name="startDate">開始日期</param>
+            <param name="endDate">結束日期</param>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomDate.DataDateList">
+            <summary>
+            日期清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomDate.SetRandomData(System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            取得及設定日期清單(參數為日期格式)
+            </summary>
+            <param name="dataCount">產生筆數</param>
+            <param name="startDate">開始日期</param>
+            <param name="endDate">結束日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomDate.SetRandomData(System.Int32,System.String,System.String)">
+            <summary>
+             取得及設定日期清單(參數為文字格式)
+            </summary>
+            <param name="dataCount">產生筆數</param>
+            <param name="startDate">開始日期</param>
+            <param name="endDate">結束日期</param>
+            <returns></returns>
+        </member>
+        <member name="T:DevStudio.RandomData.RandomDepartment">
+            <summary>
+            隨機產生部門名稱清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomDepartment.Dispose">
+            <summary>
+            解構子,實現IDisposable中的Dispose方法
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomDepartment.Dispose(System.Boolean)">
+            <summary>
+            解構子
+            </summary>
+            <param name="disposing">disposing</param>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomDepartment.Finalize">
+            <summary>
+            RandomDepartment 解構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomDepartment.#ctor">
+            <summary>
+            隨機產生部門名稱清單建構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomDepartment.#ctor(System.Int32)">
+            <summary>
+            隨機產生部門名稱清單建構子
+            </summary>
+            <param name="dataCount">產生筆數</param>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomDepartment.DataNoList">
+            <summary>
+            部門代號清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomDepartment.DataNameList">
+            <summary>
+            部門名稱清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomDepartment.DataEnglishNameList">
+            <summary>
+            部門英文名稱清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomDepartment.SetRandomData(System.Int32)">
+            <summary>
+            取得及設定部門名稱清單
+            </summary>
+            <param name="dataCount">產生筆數</param>
+            <returns></returns>
+        </member>
+        <member name="T:DevStudio.RandomData.RandomEmail">
+            <summary>
+            隨機產生 Email 清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEmail.Dispose">
+            <summary>
+            解構子,實現IDisposable中的Dispose方法
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEmail.Dispose(System.Boolean)">
+            <summary>
+            解構子
+            </summary>
+            <param name="disposing">disposing</param>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEmail.Finalize">
+            <summary>
+            RandomEmail 解構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEmail.#ctor">
+            <summary>
+            隨機產生 Email 清單建構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEmail.#ctor(System.Int32)">
+            <summary>
+            隨機產生 Email 清單建構子
+            </summary>
+            <param name="dataCount">產生筆數</param>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomEmail.DataEmailList">
+            <summary>
+            Email 清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEmail.SetRandomData(System.Int32)">
+            <summary>
+            取得及設定Email 清單
+            </summary>
+            <param name="dataCount">產生筆數</param>
+            <returns></returns>
+        </member>
+        <member name="T:DevStudio.RandomData.RandomEnabled">
+            <summary>
+            隨機產生是否判斷值
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEnabled.Dispose">
+            <summary>
+            解構子,實現IDisposable中的Dispose方法
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEnabled.Dispose(System.Boolean)">
+            <summary>
+            解構子
+            </summary>
+            <param name="disposing">disposing</param>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEnabled.Finalize">
+            <summary>
+            RandomEnabled 解構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEnabled.#ctor">
+            <summary>
+            隨機產生是否判斷值
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEnabled.#ctor(System.Int32)">
+            <summary>
+            隨機產生是否判斷值清單建構子
+            </summary>
+            <param name="dataCount">產生筆數</param>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomEnabled.DataEnabledList">
+            <summary>
+            編號清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomEnabled.DataYNList">
+            <summary>
+            編號清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomEnabled.DataYesNoList">
+            <summary>
+            編號清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomEnabled.DataTrueFalseList">
+            <summary>
+            編號清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEnabled.SetRandomData(System.Int32)">
+            <summary>
+            取得及設定是否判斷值清單
+            </summary>
+            <param name="dataCount">產生筆數</param>
+        </member>
+        <member name="T:DevStudio.RandomData.RandomEnglishAlphabet">
+            <summary>
+            隨機產生英文字母
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEnglishAlphabet.Dispose">
+            <summary>
+            解構子,實現IDisposable中的Dispose方法
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEnglishAlphabet.Dispose(System.Boolean)">
+            <summary>
+            解構子
+            </summary>
+            <param name="disposing">disposing</param>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEnglishAlphabet.Finalize">
+            <summary>
+            RandomEnglishAlphabet 解構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEnglishAlphabet.#ctor">
+            <summary>
+            隨機產生英文字母建構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEnglishAlphabet.#ctor(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            隨機產生英文字母建構子
+            </summary>
+            <param name="dataCount">產生筆數</param>
+            <param name="alphabetLength">字母重覆長度</param>
+            <param name="startAlphabet">開始字母</param>
+            <param name="endAlphabet">結束字母</param>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomEnglishAlphabet.DataEnglishAlphabetList">
+            <summary>
+            英文字母清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEnglishAlphabet.SetRandomData(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            取得及設定英文字母清單
+            </summary>
+            <param name="dataCount">產生筆數</param>
+            <param name="alphabetLength">字母重覆長度</param>
+            <param name="startAlphabet">開始字母</param>
+            <param name="endAlphabet">結束字母</param>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEnglishAlphabet.ASCIIToString(System.Int32)">
+            <summary>
+            ASCII To String
+            </summary>
+            <param name="ASCIINumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomEnglishAlphabet.StringToASCII(System.String)">
+            <summary>
+            String To ASCII
+            </summary>
+            <param name="sourceString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DevStudio.RandomData.RandomID">
+            <summary>
+            隨機產生身份證字號清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomID.Dispose">
+            <summary>
+            解構子,實現IDisposable中的Dispose方法
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomID.Dispose(System.Boolean)">
+            <summary>
+            解構子
+            </summary>
+            <param name="disposing">disposing</param>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomID.Finalize">
+            <summary>
+            RandomID 解構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomID.#ctor">
+            <summary>
+            隨機產生身份證字號清單建構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomID.#ctor(System.Int32)">
+            <summary>
+            隨機產生身份證字號清單建構子
+            </summary>
+            <param name="dataCount">產生筆數</param>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomID.DataIDList">
+            <summary>
+            身份證字號清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomID.SetRandomData(System.Int32)">
+            <summary>
+            取得及設定身份證字號清單
+            </summary>
+            <param name="dataCount">產生筆數</param>
+            <returns></returns>
+        </member>
+        <member name="T:DevStudio.RandomData.RandomName">
+            <summary>
+            隨機產生姓名清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomName.Dispose">
+            <summary>
+            解構子,實現IDisposable中的Dispose方法
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomName.Dispose(System.Boolean)">
+            <summary>
+            解構子
+            </summary>
+            <param name="disposing">disposing</param>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomName.Finalize">
+            <summary>
+            RandomName 解構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomName.#ctor">
+            <summary>
+            隨機產生姓名清單建構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomName.#ctor(System.Int32,DevStudio.RandomData.NameGenderType)">
+            <summary>
+            隨機產生姓名清單建構子
+            </summary>
+            <param name="dataCount">數量</param>
+            <param name="genderType">姓名性別類型</param>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomName.DataChineseNameList">
+            <summary>
+            中文姓名清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomName.DataEnglishNameList">
+            <summary>
+            中文姓名清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomName.DataEnglishFullNameList">
+            <summary>
+            中文姓名清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomName.DataGenderCodeList">
+            <summary>
+            性別代碼清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomName.DataGenderNameList">
+            <summary>
+            性別清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomName.DataEmailList">
+            <summary>
+            Email 清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomName.SetRandomData(System.Int32,DevStudio.RandomData.NameGenderType)">
+            <summary>
+            取得隨機資料
+            </summary>
+            <param name="dataCount">數量</param>
+            <param name="genderType">姓名性別類型</param>
+            <returns></returns>
+        </member>
+        <member name="T:DevStudio.RandomData.NameGenderType">
+            <summary>
+            姓名性別類型
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.NameGenderType.Man">
+            <summary>
+            男生姓名
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.NameGenderType.Woman">
+            <summary>
+            女生姓名
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.NameGenderType.All">
+            <summary>
+            不分性別姓名
+            </summary>
+        </member>
+        <member name="T:DevStudio.RandomData.RandomNumber">
+            <summary>
+            隨機產生編號清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomNumber.Dispose">
+            <summary>
+            解構子,實現IDisposable中的Dispose方法
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomNumber.Dispose(System.Boolean)">
+            <summary>
+            解構子
+            </summary>
+            <param name="disposing">disposing</param>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomNumber.Finalize">
+            <summary>
+            RandomNumber 解構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomNumber.#ctor">
+            <summary>
+            隨機產生編號清單建構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomNumber.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            隨機產生編號清單建構子
+            </summary>
+            <param name="dataCount">產生筆數</param>
+            <param name="startNumber">最小編號數字</param>
+            <param name="endNumber">最大編號數字</param>
+            <param name="serialLength">流水號長度,0表示不設定</param>
+            <param name="zeroNumber">是否補0</param>
+            <param name="serialNumber">連續編號</param>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomNumber.DataNumberList">
+            <summary>
+            編號清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomNumber.SetRandomData(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            取得及設定編號清單
+            </summary>
+            <param name="dataCount">產生筆數</param>
+            <param name="startNumber">最小編號數字</param>
+            <param name="endNumber">最大編號數字</param>
+            <param name="serialLength">流水號長度,0表示不設定</param>
+            <param name="zeroNumber">是否補0</param>
+            <param name="serialNumber">連續編號</param>
+        </member>
+        <member name="T:DevStudio.RandomData.RandomPhone">
+            <summary>
+            隨機產生電話號碼清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomPhone.Dispose">
+            <summary>
+            解構子,實現IDisposable中的Dispose方法
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomPhone.Dispose(System.Boolean)">
+            <summary>
+            解構子
+            </summary>
+            <param name="disposing">disposing</param>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomPhone.Finalize">
+            <summary>
+            RandomPhone 解構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomPhone.#ctor">
+            <summary>
+            隨機產生電話號碼清單建構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomPhone.#ctor(System.Int32)">
+            <summary>
+            隨機產生電話號碼清單建構子
+            </summary>
+            <param name="dataCount">產生筆數</param>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomPhone.DataTelephoneList">
+            <summary>
+            室內電話號碼清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomPhone.DataMobileList">
+            <summary>
+            行動電話號碼清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomPhone.SetRandomData(System.Int32)">
+            <summary>
+            取得及設定電話號碼清單
+            </summary>
+            <param name="dataCount">產生筆數</param>
+            <returns></returns>
+        </member>
+        <member name="T:DevStudio.RandomData.RandomTitle">
+            <summary>
+            隨機產生職稱清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomTitle.Dispose">
+            <summary>
+            解構子,實現IDisposable中的Dispose方法
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomTitle.Dispose(System.Boolean)">
+            <summary>
+            解構子
+            </summary>
+            <param name="disposing">disposing</param>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomTitle.Finalize">
+            <summary>
+            RandomTitle 解構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomTitle.#ctor">
+            <summary>
+            隨機產生職稱清單建構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomTitle.#ctor(System.Int32)">
+            <summary>
+            隨機產生職稱清單建構子
+            </summary>
+            <param name="dataCount">產生筆數</param>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomTitle.DataNoList">
+            <summary>
+            職稱代號清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomTitle.DataNameList">
+            <summary>
+            職稱名稱清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.RandomTitle.DataEnglishNameList">
+            <summary>
+            職稱英文名稱清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomTitle.SetRandomData(System.Int32)">
+            <summary>
+            取得及設定職稱清單
+            </summary>
+            <param name="dataCount">產生筆數</param>
+            <returns></returns>
+        </member>
+        <member name="T:DevStudio.RandomData.RandomTools">
+            <summary>
+            隨機產生資料工具
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomTools.Dispose">
+            <summary>
+            解構子,實現IDisposable中的Dispose方法
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomTools.Dispose(System.Boolean)">
+            <summary>
+            解構子
+            </summary>
+            <param name="disposing">disposing</param>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomTools.Finalize">
+            <summary>
+            RandomAddress 解構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.RandomTools.#ctor">
+            <summary>
+            隨機產生資料工具建構子
+            </summary>
+        </member>
+        <member name="T:DevStudio.RandomData.ezRandom">
+            <summary>
+            ezRandom Class
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandom.randomList">
+            <summary>
+            Random List
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandom.currentColumn">
+            <summary>
+            Current Column
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandom.listIndex">
+            <summary>
+            List Index
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandom.englishAlphabet">
+            <summary>
+            english Alphabet
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.ezRandom.LoadFromTemplateFile(System.String)">
+            <summary>
+            Load From Template File
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevStudio.RandomData.ezRandom.SaveToTemplateFile(System.String)">
+            <summary>
+            Save To Template File
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevStudio.RandomData.ezRandom.GetStringToInteger(System.String)">
+            <summary>
+            Get String To Integer
+            </summary>
+            <param name="stringValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevStudio.RandomData.ezRandom.ListAddColumn">
+            <summary>
+            List Add Column
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.ezRandom.UpdateCurrentColumn">
+            <summary>
+            Update Current Column
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.ezRandom.SetDataColumn(System.Data.DataTable,System.String,System.String)">
+            <summary>
+            Set Data Column
+            </summary>
+            <param name="dt"></param>
+            <param name="columnName"></param>
+            <param name="captionText"></param>
+        </member>
+        <member name="M:DevStudio.RandomData.ezRandom.GetColumnCount(System.Collections.Generic.List{DevStudio.RandomData.ezRandomColumn},System.Data.DataTable)">
+            <summary>
+            Get Column Count
+            </summary>
+            <param name="list"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevStudio.RandomData.ezRandom.GetRanddomDataTable(System.Collections.Generic.List{DevStudio.RandomData.ezRandomColumn},System.Int32)">
+            <summary>
+            Get Randdom DataTable
+            </summary>
+            <param name="list"></param>
+            <param name="dataCount"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DevStudio.RandomData.ezRandomColumn">
+            <summary>
+            ezRandom Column
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.Index">
+            <summary>
+            Index
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.Text">
+            <summary>
+            Text
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.NumberStart">
+            <summary>
+            Number Start
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.NumberEnd">
+            <summary>
+            Number End
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.NumberIsZero">
+            <summary>
+            Number Is Zero
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.NumberIsSerial">
+            <summary>
+            Number Is Serial
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.NumberLength">
+            <summary>
+            Number Length
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.DateStart">
+            <summary>
+            Date Start
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.DateEnd">
+            <summary>
+            Date End
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.DateFormat">
+            <summary>
+            Date Format
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.AlphabetStart">
+            <summary>
+            Alphabet Start
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.AlphabetEnd">
+            <summary>
+            Alphabet End
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.AlphabetLength">
+            <summary>
+            Alphabet Length
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.MixEnglishLength">
+            <summary>
+            英數混合英文長度
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.MixNumberLength">
+            <summary>
+            英數混合數字長度
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.MixEnglishStart">
+            <summary>
+            英數混合英文開啟字母
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.MixEnglishEnd">
+            <summary>
+            英數混合英文結束字母
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.MixNumberStart">
+            <summary>
+            Number Start
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.MixNumberEnd">
+            <summary>
+            Number End
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.MixNumberIsZero">
+            <summary>
+            Mix Number Is Zero
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.MixNumberIsSerial">
+            <summary>
+            Mix Number Is Serial
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.FixedValue">
+            <summary>
+            固定值
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.UserDefineValue">
+            <summary>
+            使用者自定清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.GuidLength">
+            <summary>
+            GUID Length 
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.DecimalIntegerLength">
+            <summary>
+            Decimal Integer Length
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.DecimalDecimalLength">
+            <summary>
+            Decimal Decimal Length
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.DisplayText">
+            <summary>
+            Display Text
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.ColumnTypeName">
+            <summary>
+            Column Type Name
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.ColumnType">
+            <summary>
+            Column Type
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomColumn.ColumnName">
+            <summary>
+            Column Name
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.ezRandomColumn.#ctor">
+            <summary>
+            ezRandomColumn
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.ezRandomColumn.InitColumnValue">
+            <summary>
+            Init Column Value
+            </summary>
+        </member>
+        <member name="T:DevStudio.RandomData.ezRandomEnum">
+            <summary>
+            ezRandom Enum
+            </summary>
+        </member>
+        <member name="T:DevStudio.RandomData.ezRandomEnum.enRandomColumnType">
+            <summary>
+            Random Column Type
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.None">
+            <summary>
+            未設定
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.NameChinese">
+            <summary>
+            中文姓名
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.NameEnglish">
+            <summary>
+            英文姓名
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.NameEnglishFull">
+            <summary>
+            英文全名
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.GenderCode">
+            <summary>
+            性別代號
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.GenderName">
+            <summary>
+            性別名稱
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.Email">
+            <summary>
+            電子信箱
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.Telephone">
+            <summary>
+            室內電話
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.Mobile">
+            <summary>
+            行動電話
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.ID">
+            <summary>
+            身份證字號
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.CompanyName">
+            <summary>
+            公司名稱
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.CompanyShortName">
+            <summary>
+            公司簡稱
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.CompanyID">
+            <summary>
+            統一編號
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.DepartmentNo">
+            <summary>
+            部門代號
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.DepartmentName">
+            <summary>
+            部門名稱
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.DepartmentEnglish">
+            <summary>
+            部門英文名稱
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.TitleNo">
+            <summary>
+            職稱代號
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.TitleName">
+            <summary>
+            職稱
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.TitleEnglish">
+            <summary>
+            職稱英文
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomGuid">
+            <summary>
+            隨機 GUID
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomNumber">
+            <summary>
+            隨機數字
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomDecimal">
+            <summary>
+            隨機小數
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomDate">
+            <summary>
+            隨機日期
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomAlphabet">
+            <summary>
+            隨機英文字母
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomMix">
+            <summary>
+            隨機英數混合
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomChineseName">
+            <summary>
+            隨機中文姓名
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomEnglishName">
+            <summary>
+            隨機英文姓名
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomCompanyName">
+            <summary>
+            隨機公司名稱
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomCompanyShortName">
+            <summary>
+            隨機公司簡稱
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomDepartmentName">
+            <summary>
+            隨機部門名稱
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomMobile">
+            <summary>
+            隨機行動電話
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomTelphone">
+            <summary>
+            隨機室內電話
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomAddress">
+            <summary>
+            隨機地址
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomEnabled01">
+            <summary>
+            隨機是否01
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomEnabledYN">
+            <summary>
+            隨機是否YN
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomEnabledYesNo">
+            <summary>
+            隨機是否YesNo
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.RandomEnabledTrueFalse">
+            <summary>
+            隨機是否TrueFalse
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.FixedValue">
+            <summary>
+            固定值
+            </summary>
+        </member>
+        <member name="F:DevStudio.RandomData.ezRandomEnum.enRandomColumnType.UserDefineValue">
+            <summary>
+            使用者自定清單
+            </summary>
+        </member>
+        <member name="T:DevStudio.RandomData.ezRandomEnumValue">
+            <summary>
+            ezRandom Enum Value
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.ezRandomEnumValue.GetRandomColumnTypeByName(System.String)">
+            <summary>
+            Get Random Column Type By Name
+            </summary>
+            <param name="value">Type Name</param>
+            <returns></returns>
+        </member>
+        <member name="M:DevStudio.RandomData.ezRandomEnumValue.GetRandomColumnType(DevStudio.RandomData.ezRandomEnum.enRandomColumnType)">
+            <summary>
+            Get Random Column Type
+            </summary>
+            <param name="columnType">Column Type</param>
+            <returns></returns>
+        </member>
+        <member name="T:DevStudio.RandomData.ezRandomTable">
+            <summary>
+            ezRandomTable
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomTable.Index">
+            <summary>
+            Index
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ezRandomTable.DataList">
+            <summary>
+            DataList
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.ezRandomTable.#ctor">
+            <summary>
+            ezRandomTable
+            </summary>
+        </member>
+        <member name="T:DevStudio.RandomData.ModelAddress">
+            <summary>
+            地址資料
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelAddress.CityList">
+            <summary>
+            縣市清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelAddress.CityAreaList">
+            <summary>
+            縣市區域清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelAddress.RoadNameList">
+            <summary>
+            路名清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.ModelAddress.#ctor">
+            <summary>
+            地址資料建構子
+            </summary>
+        </member>
+        <member name="T:DevStudio.RandomData.ModelCompany">
+            <summary>
+            公司資料
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelCompany.CompanyNameList">
+            <summary>
+            公司名稱清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelCompany.CompanyShortNameList">
+            <summary>
+            公司簡稱清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelCompany.CompanyStyleList">
+            <summary>
+            公司類型清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelCompany.CompanyTypeList">
+            <summary>
+            公司種類清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.ModelCompany.#ctor">
+            <summary>
+            公司資料建構子
+            </summary>
+        </member>
+        <member name="T:DevStudio.RandomData.ModelDepartment">
+            <summary>
+            部門資料
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelDepartment.NoList">
+            <summary>
+            部門代號清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelDepartment.NameList">
+            <summary>
+            部門名稱清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelDepartment.EnglishNameList">
+            <summary>
+            部門英文名稱清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.ModelDepartment.#ctor">
+            <summary>
+            部門資料建構子
+            </summary>
+        </member>
+        <member name="T:DevStudio.RandomData.ModelEmail">
+            <summary>
+            郵件伺服器資料
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelEmail.ProviderNameList">
+            <summary>
+            郵件伺服器名稱清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelEmail.EamilServerList">
+            <summary>
+            郵件地址名稱清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.ModelEmail.#ctor">
+            <summary>
+            郵件伺服器資料建構子
+            </summary>
+        </member>
+        <member name="T:DevStudio.RandomData.ModelName">
+            <summary>
+            名字資料
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelName.CompoundSurenameList">
+            <summary>
+            中文名字姓氏(複姓)
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelName.SurenameList">
+            <summary>
+            中文名字姓氏(單姓)
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelName.ChineseFirstList">
+            <summary>
+            中文名字第一字
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelName.ChineseManLastList">
+            <summary>
+            中文男性名字第二字
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelName.ChineseWomanLastList">
+            <summary>
+            中文女性名字第二字
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelName.GenderList">
+            <summary>
+            性別
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelName.GenderCodeList">
+            <summary>
+            性別代碼
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelName.EnglishManFirstList">
+            <summary>
+            男性英文姓名首字
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelName.EnglishManLastList">
+            <summary>
+            男性英文姓名尾字
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelName.EnglishWomanFirstList">
+            <summary>
+            女性英文姓名首字
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelName.EnglishWomanLastList">
+            <summary>
+            女性英文姓名尾字
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.ModelName.#ctor">
+            <summary>
+            名字資料結構子
+            </summary>
+        </member>
+        <member name="T:DevStudio.RandomData.ModelPhone">
+            <summary>
+            電話區碼資料
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelPhone.TelphoneCodeList">
+            <summary>
+            電話區碼清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelPhone.MobileCodeList">
+            <summary>
+            電話區碼清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.ModelPhone.#ctor">
+            <summary>
+            電話區碼資料建構子
+            </summary>
+        </member>
+        <member name="T:DevStudio.RandomData.ModelTitle">
+            <summary>
+            職稱資料
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelTitle.QtyList">
+            <summary>
+            職稱代號數量清單,0表示不限制
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelTitle.NoList">
+            <summary>
+            職稱代號清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelTitle.NameList">
+            <summary>
+            職稱名稱清單
+            </summary>
+        </member>
+        <member name="P:DevStudio.RandomData.ModelTitle.EnglishNameList">
+            <summary>
+            職稱英文名稱清單
+            </summary>
+        </member>
+        <member name="M:DevStudio.RandomData.ModelTitle.#ctor">
+            <summary>
+            職稱資料建構子
+            </summary>
+        </member>
+    </members>
+</doc>

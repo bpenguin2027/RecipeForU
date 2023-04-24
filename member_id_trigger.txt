@@ -1,0 +1,44 @@
+USE [RecipeForU]
+GO
+/****** Object:  Trigger [dbo].[mid_tr]    Script Date: 2023/4/22 下午 08:43:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:
+-- Create date: 2021/05/29
+-- Update date: 2023/04/22
+-- Description:	member_id_trigger
+-- =============================================
+ALTER TRIGGER [dbo].[mid_tr]
+   ON  [dbo].[MEMBER]
+   AFTER INSERT,DELETE,UPDATE
+AS 
+BEGIN
+	SET NOCOUNT ON;
+
+	DECLARE @command nvarchar(50)
+	DECLARE @rowid int
+	DECLARE @member_type nvarchar(10)
+	DECLARE @member_id nvarchar(50)
+	DECLARE @new_id nvarchar(50)
+	DECLARE @int_id int
+
+	IF EXISTS(SELECT * FROM inserted) AND NOT EXISTS(SELECT * FROM deleted) SET @command = 'INSERT'
+	IF NOT EXISTS(SELECT * FROM inserted) AND EXISTS(SELECT * FROM deleted) SET @command = 'DELETE'
+	IF EXISTS(SELECT * FROM inserted) AND EXISTS(SELECT * FROM deleted) SET @command = 'UPDATE'
+
+	IF (@command = 'INSERT')
+	BEGIN
+		SET @rowid = (SELECT rowid FROM inserted)
+		SET @member_type = (SELECT member_type FROM inserted)
+		--取得最新一筆會員ID
+		SET @new_id = (SELECT TOP 1 member_id FROM [dbo].[MEMBER] WHERE member_type = @member_type ORDER BY CAST(RIGHT(member_id, 4) AS int) DESC)
+		--將此會員ID尾數轉為int
+		SET @int_id = CAST(RIGHT(@new_id, LEN(@new_id) - 1) AS int)
+		--將會員ID尾數+1後，字串組合成為新會員ID
+		SET @member_id = @member_type + RIGHT(REPLICATE('0', 3) + CAST(@int_id + 1 AS nvarchar), 4)		
+		UPDATE [dbo].[MEMBER] SET member_id = @member_id WHERE rowid = @rowid
+	END
+END

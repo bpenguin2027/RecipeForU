@@ -1,0 +1,61 @@
+﻿@model IEnumerable<RecipeForU.Models.RECIPE>
+@using DevStudio;
+@using PagedList;
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "查詢結果";
+    Layout = "~/Views/Shared/_LayoutLite.cshtml";
+}
+
+<div class="row margin-top-login">
+    <div class="col-10 offset-1">
+        <div class="panel panel-default box-shadow">
+            <div class="row panel-heading admin-list-heading">
+                <div class="col-7 col-md-6 offset-md-3 d-flex justify-content-center align-items-center admin-list-title">@ViewBag.Title</div>
+            </div>
+            <div class="row panel-body admin-list-body">
+                <table class="col-12 table">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.recipe_cover)</th>
+                        <th>@Html.DisplayNameFor(model => model.recipe_name)</th>
+                        <th>@Html.DisplayNameFor(model => model.recipe_author)</th>
+                        <th>@Html.DisplayNameFor(model => model.time)</th>
+                        <th>@Html.DisplayNameFor(model => model.view_times)</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a href="@Url.Content("~/Recipe/RecipeDetail/" + item.recipe_id)">
+                                    <img class="mainimage" src="@Url.Content(@ImageGetService.GetRecipeImage(item.recipe_id))" style="max-width: 50%;width: 100px;" />
+                                </a>
+                            </td>
+                            <td>@Html.DisplayFor(modelItem => item.recipe_name)</td>
+                            <td>@RecipeDetailService.GetRecipeAuthorById(item.recipe_id)</td>
+                            <td>@Html.DisplayFor(modelItem => item.time)</td>
+                            <td>@Html.DisplayFor(modelItem => item.view_times)</td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-flex-start align-items-center">
+                    @Html.PagedListPager(
+                   (IPagedList)Model, page => Url.Action("SearchResult", new { page }),
+                   new PagedListRenderOptions()
+                   {
+                       LiElementClasses = new List<string> { "categories__pagination" }
+                   })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    @Html.ActionLink("返回首頁", "Index", "Home", null, new { @class = "site-btn" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

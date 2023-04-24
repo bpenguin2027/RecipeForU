@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevStudio.SQLServer</name>
+    </assembly>
+    <members>
+        <member name="T:DevStudio.Database.SQLServer">
+            <summary>
+            SQL Server ADO.Net 簡易類別
+            </summary>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.Dispose">
+            <summary>
+            解構子,實現IDisposable中的Dispose方法
+            </summary>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.Dispose(System.Boolean)">
+            <summary>
+            解構子
+            </summary>
+            <param name="disposing">disposing</param>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.Finalize">
+            <summary>
+            SQLServer 解構子
+            </summary>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.#ctor(DevStudio.Database.SQLEnum.ConfigSource,System.String)">
+            <summary>
+            SQLServer 建構子,指定自定的連線名稱
+            </summary>
+            <param name="source">ConnectionString 設定來源</param>
+            <param name="connName">ConnectionString 名稱</param>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.#ctor(System.String)">
+            <summary>
+            SQLServer 建構子,指定連線字串
+            </summary>
+            <param name="connectionString">連線字串</param>
+        </member>
+        <member name="F:DevStudio.Database.SQLServer._ConnName">
+            <summary>
+            連線名稱內部變數
+            </summary>
+        </member>
+        <member name="P:DevStudio.Database.SQLServer.ConfigSource">
+            <summary>
+            ConnectionString 設定來源
+            </summary>
+        </member>
+        <member name="P:DevStudio.Database.SQLServer.conn">
+            <summary>
+            SqlConnection 連線物件
+            </summary>
+        </member>
+        <member name="P:DevStudio.Database.SQLServer.cmd">
+            <summary>
+            SqlCommand 命令
+            </summary>
+        </member>
+        <member name="P:DevStudio.Database.SQLServer.ConnName">
+            <summary>
+            連線名稱變數
+            </summary>
+        </member>
+        <member name="P:DevStudio.Database.SQLServer.ConnectionString">
+            <summary>
+            連線字串
+            </summary>
+        </member>
+        <member name="P:DevStudio.Database.SQLServer.CommandText">
+            <summary>
+            SQL 指令
+            </summary>
+        </member>
+        <member name="P:DevStudio.Database.SQLServer.CommandType">
+            <summary>
+            命令模式
+            </summary>
+        </member>
+        <member name="P:DevStudio.Database.SQLServer.HasRows">
+            <summary>
+            回傳執行後是否有記錄
+            </summary>
+        </member>
+        <member name="P:DevStudio.Database.SQLServer.ErrorMessage">
+            <summary>
+            執行後有錯誤時的錯誤訊息
+            </summary>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.Open">
+            <summary>
+            連線
+            </summary>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.Connect">
+            <summary>
+            設定連線物件執行連線
+            </summary>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.CheckConnect">
+            <summary>
+            檢查是否有連線,如果為關閉狀態則連線
+            </summary>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.GetValueString(System.String)">
+            <summary>
+            取得指定欄位的字串型態值
+            </summary>
+            <param name="sColName">指定欄位</param>
+            <returns></returns>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.GetValueInt(System.String)">
+            <summary>
+            取得指定欄位的整數型態值
+            </summary>
+            <param name="sColName">指定欄位</param>
+            <returns></returns>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.GetValueDecimal(System.String)">
+            <summary>
+            取得指定欄位的數字型態值
+            </summary>
+            <param name="sColName">指定欄位</param>
+            <returns></returns>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.GetValueDateTime(System.String)">
+            <summary>
+            取得指定欄位的日期型態值
+            </summary>
+            <param name="sColName">指定欄位</param>
+            <returns></returns>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.GetDataTable">
+            <summary>
+            執行 SQL 指令並取回 DataTable,並自動關閉資料庫連線
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.GetDataTable(System.Boolean)">
+            <summary>
+            執行 SQL 指令並取回 DataTable
+            </summary>
+            <param name="bClose">執行後關閉資料庫</param>
+            <returns></returns>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.GetDataSet">
+            <summary>
+            執行 SQL 指令並取回 DataSet,並自動關閉資料庫連線
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.GetDataSet(System.Boolean)">
+            <summary>
+            執行 SQL 指令並取回 DataSet
+            </summary>
+            <param name="bClose">執行後關閉資料庫</param>
+            <returns></returns>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.Close">
+            <summary>
+            關閉連線
+            </summary>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.ParametersAdd(System.String,System.Object,System.Boolean)">
+            <summary>
+            加入參數
+            </summary>
+            <param name="sParameter">參數名稱</param>
+            <param name="oValue">參數值</param>
+            <param name="bClear">是否先清除所有參數再加入</param>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.ParametersAdd(System.Data.SqlClient.SqlParameter,System.Boolean)">
+            <summary>
+            加入參數
+            </summary>
+            <param name="parameter">SQL Server 命令參數物件</param>
+            <param name="bClear">是否先清除所有參數再加入</param>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.ExecuteNonQuery(System.Boolean)">
+            <summary>
+            執行 SQL 命令不回傳值
+            </summary>
+            <param name="bClose">是否關閉連線</param>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.SetProcedure(System.String)">
+            <summary>
+            設定 StoreProcedure
+            </summary>
+            <param name="sProcedureName">StoreProcedure 名稱</param>
+        </member>
+        <member name="M:DevStudio.Database.SQLServer.ExecuteProcedure(System.Boolean)">
+            <summary>
+            執行 StoreProcedure
+            </summary>
+        </member>
+        <member name="T:DevStudio.Database.SQLEnum">
+            <summary>
+            SQL Server ConnectionString 的設定來源 枚舉類型
+            </summary>
+        </member>
+        <member name="T:DevStudio.Database.SQLEnum.ConfigSource">
+            <summary>
+            ConnectionString 的設定來源
+            </summary>
+        </member>
+        <member name="F:DevStudio.Database.SQLEnum.ConfigSource.AppConfig">
+            <summary>
+            從 App.config 中讀取 ConnectionString
+            </summary>
+        </member>
+        <member name="F:DevStudio.Database.SQLEnum.ConfigSource.WebConfig">
+            <summary>
+            從 Web.config 中讀取 ConnectionString
+            </summary>
+        </member>
+        <member name="F:DevStudio.Database.SQLEnum.ConfigSource.UserDefine">
+            <summary>
+            使用者自定義 ConnectionString
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,274 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>@AppService.AppName - @ViewBag.Title</title>
+    <link rel="icon" href="@Url.Content("~/foodeiblog/img/icon_pan.svg")" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <script src="@Url.Content("~/shoppy_admin/js/jquery-2.1.1.min.js")"></script>
+
+    <link rel="stylesheet" href="@Url.Content("~/shoppy_admin/css/bootstrap.css")" type="text/css">
+    <link rel="stylesheet" href="@Url.Content("~/shoppy_admin/css/style.css")" type="text/css">
+    <link rel="stylesheet" href="@Url.Content("~/foodeiblog/css/font-awesome.min.css")" type="text/css">
+    <!--Google Fonts-->
+    <link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
+
+    <!--static chart-->
+    <script src="@Url.Content("~/shoppy_admin/js/Chart.min.js")"></script>
+    <!--//charts-->
+    <!-- geo chart -->
+    <script src="//cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    @*<script>window.modernizr || document.write('<script src="lib/modernizr/modernizr-custom.js"><\/script>')</script>*@
+
+    <script src="@Url.Content("~/shoppy_admin/js/skycons.js")"></script>
+</head>
+<body>
+    <div class="page-container">
+        <div class="left-content">
+            <div class="mother-grid-inner">
+                <!--header start here-->
+                <div class="header-main">
+                    <!-- LOGO和查詢欄 -->
+                    <div class="header-left">
+                        <div class="logo-name">
+                            <a href="@Url.Content("~/Home/index")">
+                                <h1>Recipe<span>For</span>U</h1>
+                                @*<img id="logo" src="@Url.Content("~/foodeiblog/img/logo.png")" alt="Logo">*@
+                            </a>
+                        </div>
+                        <!--search-box-->
+                        <div class="search-box">
+                            <form>
+                                <input type="text" placeholder="查詢管理項目" required="">
+                                <input type="submit" value="">
+                            </form>
+                        </div><!--//end-search-box-->
+                        <div class="clearfix"> </div>
+                    </div>
+                    <!-- 最新食譜+會員 -->
+                    <div class="header-right">
+                        <div class="profile_details_left">
+                            <ul class="nofitications-dropdown">
+                                <li class="dropdown head-dpdn">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-book"></i><span class="badge">3</span></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="notification_header">
+                                                <h3>最新食譜</h3>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="user_img"><img src="@Url.Content("~/foodeiblog/img/categories/cat-1.jpg")" alt=""></div>
+                                                <div class="notification_desc">
+                                                    <p>烤蘋果派的方法</p>
+                                                    <p><span>王小明</span></p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </a>
+                                        </li>
+                                        <li class="odd">
+                                            <a href="#">
+                                                <div class="user_img"><img src="@Url.Content("~/foodeiblog/img/categories/cat-2.jpg")" alt=""></div>
+                                                <div class="notification_desc">
+                                                    <p>提拉米蘇大作戰</p>
+                                                    <p><span>李小華</span></p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="user_img"><img src="@Url.Content("~/foodeiblog/img/categories/cat-3.jpg")" alt=""></div>
+                                                <div class="notification_desc">
+                                                    <p>進擊的鮭魚壽司</p>
+                                                    <p><span>環保阿嬤金鳳姨</span></p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <div class="notification_bottom">
+                                                @Html.ActionLink("食譜列表", "Index", "Recipes")
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown head-dpdn">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i><span class="badge blue">3</span></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="notification_header">
+                                                <h3>最新會員</h3>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="user_img"><img src="@Url.Content("~/shoppy_admin/images/p1.png")" alt=""></div>
+                                                <div class="notification_desc">
+                                                    <p>王小明</p>
+                                                    <p><span>ming@gmail.com</span></p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </a>
+                                        </li>
+                                        <li class="odd">
+                                            <a href="#">
+                                                <div class="user_img"><img src="@Url.Content("~/shoppy_admin/images/p5.png")" alt=""></div>
+                                                <div class="notification_desc">
+                                                    <p>李小華</p>
+                                                    <p><span>hua@gmail.com</span></p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="user_img"><img src="@Url.Content("~/shoppy_admin/images/p6.png")" alt=""></div>
+                                                <div class="notification_desc">
+                                                    <p>環保阿嬤金鳳姨</p>
+                                                    <p><span>supergrandma@gmail.com</span></p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <div class="notification_bottom">
+                                                @Html.ActionLink("會員列表", "List", "User")
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <!-- 最新食譜+會員 end -->
+                        <div class="profile_details">
+                            <ul>
+                                <li class="dropdown profile_details_drop">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <div class="profile_img">
+                                            @*<span class="prfil-img"></span>*@
+                                            <div class="user-name">
+                                                <p>@UserAccount.UserName</p>
+                                                <span>@UserAccount.RoleName</span>
+                                            </div>
+                                            <i class="fa fa-angle-down lnr"></i>
+                                            <i class="fa fa-angle-up lnr"></i>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu drp-mnu">
+                                        <li>@Html.ActionLink("修改會員資料", "EditMyInfo", "User", null, new { @class = "fa fa-user" })</li>
+                                        <li>@Html.ActionLink("重設密碼", "ResetPassword", "User", null, new { @class = "fa fa-unlock-alt" })</li>
+                                        <li>@Html.ActionLink("登出", "Login", "User", null, new { @class = "fa fa-sign-out" })</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <!--heder end here-->
+                <!-- script-for sticky-nav -->
+                <script>
+                    $(document).ready(function () {
+                        var navoffeset = $(".header-main").offset().top;
+                        $(window).scroll(function () {
+                            var scrollpos = $(window).scrollTop();
+                            if (scrollpos >= navoffeset) {
+                                $(".header-main").addClass("fixed");
+                            } else {
+                                $(".header-main").removeClass("fixed");
+                            }
+                        });
+
+                    });
+                </script>
+                <!-- /script-for sticky-nav -->
+                <!--inner block start here-->
+                @RenderBody()
+            </div>
+            <!--inner block end here-->
+            <!--copy rights start here-->
+            <div class="copyrights">
+                <p>Copyright &copy;@DateTime.Now.Year @AppService.AppName. All rights reserved.</p>
+            </div>
+            <!--COPY rights end here-->
+        </div>
+        <!--slider menu-->
+        <div class="sidebar-menu">
+            <!-- 收合的bar -->
+            <div class="logo">
+                <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+                <a href="#"><span id="logo"></span></a>
+            </div>
+            <div class="menu">
+                <ul id="menu">
+                    <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-home"></i><span>首頁</span></a></li>
+                    <li><a href="@Url.Action("Dashboard", "Home")"><i class="fa fa-tachometer"></i><span>後台管理</span></a></li>
+
+                    <li id="menu-comunicacao">
+                        <a href="#"><i class="fa fa-book nav_icon"></i><span>食譜管理</span><span class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-comunicacao-sub">
+                            <li id="menu-mensagens" style="width: 120px">
+                                <a href="@Url.Action("RecipeAdd", "Recipes")" class="nav_subitem"><i class="fa fa-pencil"></i><span>新增食譜</span></a>
+                            </li>
+                            <li id="menu-arquivos">
+                                <a href="@Url.Action("Index", "Recipes")" class="nav_subitem"><i class="fa fa-list"></i><span>全站食譜</span></a>
+                            </li>
+                            <li id="menu-arquivos">
+                                <a href="@Url.Action("MyList", "Recipe")" class="nav_subitem"><i class="fa fa-heart"></i><span>我的食譜</span></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-user"></i><span>會員管理</span><span class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes">
+                                <a href="@Url.Action("List", "User")" class="nav_subitem"><i class="fa fa-list"></i><span>會員列表</span></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#"><i class="fa fa-bar-chart"></i><span>統計數據</span></a></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <!--slide bar menu end here-->
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({ "position": "absolute" });
+                //$("#menu .nav_subitem i").css({ "display": "none" });
+                //$("#menu .nav_subitem span").css({ "display": "block" }, { "position": "relative" });
+            }
+            else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                /*setTimeout(function () {*/
+                $("#menu span").css({ "position": "relative" });
+                //$("#menu .nav_subitem i").css({ "display": "block" });
+                //$("#menu .nav_subitem span").css({ "display": "block" }, { "position": "relative" });
+                /*}, 400);*/
+            }
+            toggle = !toggle;
+        });
+    </script>
+    <!--js-->
+    <script src="@Url.Content("~/shoppy_admin/js/jquery.nicescroll.js")"></script>
+    <script src="@Url.Content("~/shoppy_admin/js/scripts.js")"></script>
+    <script src="@Url.Content("~/shoppy_admin/js/bootstrap.js")"></script>
+    <!-- mother grid end here-->
+</body>
+</html>

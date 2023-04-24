@@ -1,0 +1,146 @@
+﻿@model RecipeViewModel
+
+@{
+    ViewBag.Title = "新增食譜";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/ElementStepEdit.js")"></script>
+
+@using (Html.BeginForm("RecipeAdd", "Recipes", FormMethod.Post, new { id = "AddRecipeForm" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid">
+        <div class="row margin-top-login">
+            <div class="col-10 offset-1">
+                <div class="panel panel-primary box-shadow">
+                    <div class="panel-heading">
+                        <div class="row panel-heading admin-list-heading">
+                            <div class="col-12 d-flex justify-content-center align-items-center admin-list-title">@ViewBag.Title</div>
+                        </div>
+                    </div>
+                    <div class="panel-body admin-list-body">
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(m => m.ActionNo)
+                            @Html.HiddenFor(m => m.RowID)
+                            @Html.HiddenFor(m => m.StepNo)
+                            @Html.HiddenFor(m => m.RecipeID)
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <fieldset>
+                                        <legend>食譜資訊</legend>
+                                        <div class="row" style="padding-top:15px;">
+                                            <div class="col-3 offset-1 cover_image">
+                                                <img src="@Url.Content(ImageUpdateService.RecipeImageUrl)" style="width:100%; margin:auto;" alt="食譜圖示" />
+                                            </div>
+
+                                            <div class="col-8">
+                                                <div class="row">
+                                                    <div class="col-12 col-md-10">
+                                                        @Html.EditorFor(model => model.RecipeName, new { htmlAttributes = new { @class = "form-control", @id = "recipe_name", @placeholder = "請輸入食譜名稱" } })
+                                                        @Html.ValidationMessageFor(model => model.RecipeName, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 col-md-10">
+                                                        @Html.TextAreaFor(model => model.RecipeIntro, 5, 1, new { @class = "form-control", @id = "recipe_intro", @placeholder = "請輸入食譜介紹，上限為250字", @maxlength = "250" })
+                                                        @Html.ValidationMessageFor(model => model.RecipeIntro, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-3 offset-1 d-flex justify-content-center align-items-center">
+                                                <input type="button" class="upload_image_btn site-btn" onclick="uploadRecipeImage();" value="上傳食譜圖片" />
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <fieldset>
+                                        <legend>食材</legend>
+                                        <table class="table add_recipe_table">
+                                            <tr>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.RecipeElement.element_id)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.RecipeElement.qty)
+                                                </th>
+                                                <th></th>
+                                            </tr>
+
+                                            @foreach (var item in RecipeService.RecipeElement)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.element_id)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.qty)
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" class="table-btn" onclick="editElement('@item.rowid');" value="修改" />
+                                                        <input type="button" class="site-btn" onclick="deleteElement('@item.rowid');" value="刪除" />
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </table>
+                                    </fieldset>
+                                    <input type="button" id="addButton" onclick="addElement();" value="&#8853;" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <fieldset>
+                                        <legend>步驟</legend>
+                                        <table class="table add_recipe_table">
+                                            <tr>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.RecipeStep.step_id)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.RecipeStep.step_body)
+                                                </th>
+                                                <th>縮圖</th>
+                                                <th>功能列</th>
+                                            </tr>
+
+                                            @foreach (var item in RecipeService.RecipeStep)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.step_id)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.step_body)
+                                                    </td>
+                                                    <td>
+                                                        <img src="@Url.Content(RecipeService.TempImageUrl(item.step_cover))" style="width:64px;" alt="" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" class="table-btn" onclick="editStep('@item.rowid', '@item.step_id');" value="修改" />
+                                                        <input type="button" class="site-btn" onclick="deleteStep('@item.rowid', '@item.step_id');" value="刪除" />
+                                                        <input type="button" class="primary-btn" onclick="uploadStep('@item.rowid');" value="圖片" />
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </table>
+                                    </fieldset>
+                                    <input type="button" id="addButton" onclick="addStep();" value="&#8853;" />
+                                </div>
+                            </div>
+
+                            <input type="button" class="site-btn" onclick="saveRecipe();" value="食譜存檔" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

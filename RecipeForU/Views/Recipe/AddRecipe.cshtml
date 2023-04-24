@@ -1,0 +1,182 @@
+﻿
+@{
+    ViewBag.Title = "新增食譜";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+
+    <div class="row margin-top-login">
+        <div class="col-10 offset-1">
+            <div class="panel panel-default box-shadow">
+                <div class="row panel-heading admin-list-heading">
+                    <div class="col-12 d-flex justify-content-center align-items-center admin-list-title">@ViewBag.Title</div>
+                </div>
+                <div class="panel-body admin-list-body">
+
+                    @using (Html.BeginForm())
+                    {
+                        <div class="row">
+                            <div class="col-12">
+                                <fieldset class="row">
+                                    <legend>食譜名稱</legend>
+                                    <input type="text" id='textbox_name' name="textbox_name" class="form-control" placeholder="請輸入食譜名稱">
+                                </fieldset>
+                            </div>
+                            <div class="col-12">
+                                <fieldset class="row">
+                                    <legend>簡介</legend>
+                                    <textarea id='textbox_intro' name="textbox_intro" class="form-control" placeholder="請輸入食譜介紹，上限為250字" maxlength="250"></textarea>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        /*食材欄位*/
+                        <div class="row">
+                            <div class="col-12">
+                                <fieldset id="TextBoxesGroupx" class="row">
+                                    <legend>食材</legend>
+                                    <div id="TextBoxScopex1" class="col-12">
+                                        <input type="text" id='textboxx1' name="textboxx1" class="form-control col-12 col-md-7" placeholder="食材1" />
+                                        <input type="text" id='textboxxq1' name="textboxxq1" class="form-control col-12 col-md-4" placeholder="份量" />
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        @Html.Hidden("TextBoxCountx", 1)
+                        <input type="button" value='&#8853;' id='addButtonx'>
+                        <input type="button" value='&#8854;' id='removeButtonx'>
+
+                        /*步驟欄位*/
+                        <div class="row">
+                            <div class="col-12">
+                                <fieldset id="TextBoxesGroup" class="row">
+                                    <legend>步驟</legend>
+                                    <div id="TextBoxScope1" class="col-12">
+                                        <input type="text" id='textbox1' name="textbox1" class="form-control" placeholder="請輸入步驟1">
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        @Html.Hidden("TextBoxCount", 1)
+                        <input type="button" value='&#8853;' id='addButton' />
+                        <input type="button" value='&#8854;' id='removeButton' />
+                        <div class="row">
+                            <div class="col d-flex justify-content-center">
+                                <input type="submit" class="site-btn" value="送出" />
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- JS includes -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/mvc/4.0/jquery.validate.unobtrusive.min.js"></script>
+
+<script type="text/javascript">
+
+    //食材欄位
+    $(document).ready(function elements() {
+
+        $('#textboxx1').focus();
+
+        $("#addButtonx").click(function () {
+            var currentCountx = parseInt($('#TextBoxCountx').val(), 10);
+            var newCountx = currentCountx + 1;
+
+            /*var newColumnDivx =
+            $(document.createElement('div')).attr("class", 'col-12');*/
+
+            var newTextBoxDivx =
+                $(document.createElement('div')).attr(
+                    {
+                        "id": 'TextBoxScopex' + newCountx,
+                        "class": "col-12"
+                    });
+
+            /*newTextBoxDivx.appendTo(newColumnDivx);*/
+
+            newTextBoxDivx.after().html(
+                '<input type="text"' +
+                ' id="textboxx' + newCountx + '"' +
+                ' name="textboxx' + newCountx + '"' +
+                ' class="form-control col-12 col-md-7"' +
+                ' placeholder="食材' + newCountx + '" />' +
+                ' <input type="text"' +
+                ' id="textboxxq' + newCountx + '"' +
+                ' name="textboxxq' + newCountx + '"' +
+                ' class="form-control col-12 col-md-4"' +
+                ' placeholder="份量" />'
+            );
+
+            newTextBoxDivx.appendTo("#TextBoxesGroupx");
+            $('#TextBoxCountx').val(newCountx);
+            $('#textboxx' + newCountx).focus();
+        });
+
+        $("#removeButtonx").click(function () {
+            var currentCountx = parseInt($('#TextBoxCountx').val(), 10);
+            if (currentCountx == 0) {
+                alert("已全部移除");
+                return false;
+            }
+            $("#TextBoxScopex" + currentCountx).remove();
+            var newCountx = currentCountx - 1;
+            $('#TextBoxCountx').val(newCountx);
+        });
+    });
+
+    //步驟欄位
+    $(document).ready(function () {
+
+        $('#textbox1').focus();
+
+        $("#addButton").click(function () {
+            var currentCount = parseInt($('#TextBoxCount').val(), 10);
+            var newCount = currentCount + 1;
+
+            /*var newColumnDiv =
+                $(document.createElement('div')).attr("class", 'col-md-10');*/
+
+            var newTextBoxDiv =
+                $(document.createElement('div')).attr(
+                    {
+                        "id": 'TextBoxScope' + newCount,
+                        "class": "col-12"
+                    });
+
+            /*newTextBoxDiv.appendTo(newColumnDiv);*/
+
+            newTextBoxDiv.after().html(
+                '<input type="text"' +
+                ' id="textbox' + newCount + '"' +
+                ' name="textbox' + newCount + '"' +
+                ' class="form-control"' +
+                ' placeholder="請輸入步驟' + newCount + '" />');
+
+            newTextBoxDiv.appendTo("#TextBoxesGroup");
+            $('#TextBoxCount').val(newCount);
+            $('#textbox' + newCount).focus();
+        });
+
+        $("#removeButton").click(function () {
+            var currentCount = parseInt($('#TextBoxCount').val(), 10);
+            if (currentCount == 0) {
+                alert("已全部移除");
+                return false;
+            }
+            $("#TextBoxScope" + currentCount).remove();
+            var newCount = currentCount - 1;
+            $('#TextBoxCount').val(newCount);
+        });
+
+    });
+</script>
