@@ -178,15 +178,25 @@ public class RecipeDetailService
     /// 修改食譜資料
     /// </summary>
     /// <param name="id"></param>
-    /// <param name="newdata"></param>
+    /// <param name="newData"></param>
     public static void EditRecipe(string id, RECIPE newData)
     {
         using (RecipeForUEntities db = new RecipeForUEntities())
         {
-            var data = db.RECIPE.Where(m => m.recipe_id == id).FirstOrDefault();
-            data.recipe_name = newData.recipe_name;
-            data.recipe_intro = newData.recipe_intro;
-            db.SaveChanges();
+            try
+            {
+                var data = db.RECIPE.Where(m => m.recipe_id == id).FirstOrDefault();
+                if (data != null)
+                {
+                    data.recipe_name = newData.recipe_name;
+                    data.recipe_intro = newData.recipe_intro;
+                    db.SaveChanges();
+                }               
+            }
+            catch
+            {
+                var data = 0;
+            }
         }
     }
 
@@ -194,7 +204,7 @@ public class RecipeDetailService
     /// 修改食材資料
     /// </summary>
     /// <param name="id"></param>
-    /// <param name="newdata"></param>
+    /// <param name="newDatas"></param>
     public static void EditRecipeElements(string id, List<eRECIPE> newDatas)
     {
         using (RecipeForUEntities db = new RecipeForUEntities())
@@ -203,15 +213,15 @@ public class RecipeDetailService
 
             foreach (var item in data)
             {
-                item.element_id = "To be deleted";
+                db.eRECIPE.Remove(item);
             }
 
             foreach (var item in newDatas)
             {
                 eRECIPE newData = new eRECIPE();
+                newData.recipe_id = id;
                 newData.element_id = item.element_id;
                 newData.qty = item.qty;
-                newData.recipe_id = id;
                 db.eRECIPE.Add(newData);
             }
             db.SaveChanges();
@@ -221,24 +231,25 @@ public class RecipeDetailService
     /// <summary>
     /// 修改步驟資料
     /// </summary>
-    /// <param name="prevdata"></param>
-    /// <param name="newdata"></param>
-    public static void EditRecipeSteps(string id, List<sRECIPE> newdata)
+    /// <param name="id"></param>
+    /// <param name="newDatas"></param>
+    public static void EditRecipeSteps(string id, List<sRECIPE> newDatas)
     {
         using (RecipeForUEntities db = new RecipeForUEntities())
         {
             var data = db.sRECIPE.Where(m => m.recipe_id == id);
             foreach (var item in data)
             {
-                item.step_id = "To be deleted";
+                db.sRECIPE.Remove(item);
             }
             int i = 1;
-            foreach (var item in newdata)
+            foreach (var item in newDatas.OrderBy(m => Convert.ToInt32(m.step_id)))
             {
                 sRECIPE newData = new sRECIPE();
+                newData.recipe_id = id;
                 newData.step_id = i.ToString().PadLeft(2, '0');
                 newData.step_body = item.step_body;
-                newData.recipe_id = id;
+                
                 db.sRECIPE.Add(newData);
                 i++;
             }

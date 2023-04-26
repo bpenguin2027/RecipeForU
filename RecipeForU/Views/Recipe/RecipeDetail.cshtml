@@ -37,7 +37,7 @@
                         <h4>@ViewBag.Title</h4>
 
                         <ul class="widget">
-                            <li>by @Model.Author</li>
+                            <li>by @RecipeDetailService.GetRecipeAuthorById(Model.RECIPE.recipe_id)</li>
                             <li>上傳日期：@Model.RECIPE.time</li>
                             <li>觀看次數：@Model.RECIPE.view_times</li>
                         </ul>
@@ -45,14 +45,14 @@
                         {
                             <table>
                                 <tr>
-                                    @if (Model.Favored)
-                                    {
+                                    @*@if (Model.Favored)
+                                    {*@
                                         <td><span class="delfavor" style="color:coral; cursor:pointer"><i class="fa fa-heart" aria-hidden="true"></i></span><input type="hidden" value="@Model.RECIPE.recipe_id" /></td>
                                     }
-                                    else
+                                    @*else
                                     {
                                         <td><span class="addfavor" style="color:coral; cursor:pointer"><i class="fa fa-heart-o" aria-hidden="true"></i></span><input type="hidden" value="@Model.RECIPE.recipe_id" /></td>
-                                    }
+                                    }*@
                                 </tr>
                             </table>
                         }

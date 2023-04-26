@@ -63,8 +63,8 @@ namespace RecipeForU.Controllers
             RecipeDatas.RECIPE = RecipeDetailService.GetRecipeById(id);
             RecipeDatas.sRECIPE = RecipeDetailService.GetRecipeStepsById(id);
             RecipeDatas.eRECIPE = RecipeDetailService.GetRecipeElementsById(id);
-            RecipeDatas.Favored = RecipeDetailService.CheckFavored(UserAccount.UserNo, id);
-            RecipeDatas.Author = RecipeDetailService.GetRecipeAuthorById(id);
+            //RecipeDatas.Favored = RecipeDetailService.CheckFavored(UserAccount.UserNo, id);
+            //RecipeDatas.Author = RecipeDetailService.GetRecipeAuthorById(id);
             RecipeDetailService.AddViewTimes(id);
             return View(RecipeDatas);
         }
@@ -92,11 +92,11 @@ namespace RecipeForU.Controllers
         /// <returns></returns>
         [HttpPost]
         [LoginAuthorize(RoleList = "Admin,User")]
-        public ActionResult EditRecipeDetail(string id, RecipeDetailViewModel model)
+        public ActionResult EditRecipeDetail(string id, RecipeDetailViewModel RecipeDatas)
         {
-            RecipeDetailService.EditRecipe(id, model.RECIPE);
-            RecipeDetailService.EditRecipeElements(id, model.eRECIPE);
-            RecipeDetailService.EditRecipeSteps(id, model.sRECIPE);
+            RecipeDetailService.EditRecipe(id, RecipeDatas.RECIPE);
+            RecipeDetailService.EditRecipeElements(id, RecipeDatas.eRECIPE);
+            RecipeDetailService.EditRecipeSteps(id, RecipeDatas.sRECIPE);
             return View("MyList", "Recipe");
         }
 

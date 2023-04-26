@@ -3,14 +3,7 @@
 @{
     ViewBag.Title = "修改食譜";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    int i = 1;
 }
-<style>
-    .tex {
-        height: 200px;
-        width: 900px;
-    }
-</style>
 
 @using (Html.BeginForm("EditRecipeDetail", "Recipe", new { id = Model.RECIPE.recipe_id }, FormMethod.Post, null))
 {
@@ -42,35 +35,33 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-12 col-md-10">
-                                                    @Html.TextAreaFor(model => model.RECIPE.recipe_intro, 5, 1, new { @class = "form-control", @id = "recipe_intro", @placeholder = "請輸入食譜介紹，上限為250字", @maxlength = "250" })
+                                                    @Html.TextAreaFor(model => model.RECIPE.recipe_intro, new { htmlAttributes = new { @class = "form-control", @id = "recipe_intro", @placeholder = "請輸入食譜介紹，上限為250字", @maxlength = "250" } })
                                                     @Html.ValidationMessageFor(model => model.RECIPE.recipe_intro, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                         </div>
 
                                         @*
-                                        <div class="col-3 offset-1 d-flex justify-content-center align-items-center">
-                                            <input type="button" class="upload_image_btn site-btn" onclick="uploadRecipeImage();" value="上傳食譜圖片" />
-                                        </div>
+                                            <div class="col-3 offset-1 d-flex justify-content-center align-items-center">
+                                                <input type="button" class="upload_image_btn site-btn" onclick="uploadRecipeImage();" value="上傳食譜圖片" />
+                                            </div>
                                         *@
                                     </div>
                                 </fieldset>
                             </div>
                         </div>
 
-
-
                         <div class="row">
                             <div class="col-12">
                                 <fieldset id="elementEditor" class="row">
                                     <legend>食材</legend>
-                                    @foreach (var item in Model.eRECIPE)
+                                    @for (int i = 0; i < Model.eRECIPE.Count; i++)
                                     {
-                                        @Html.EditorFor(model => item.element_id, new { htmlAttributes = new { @class = "form-control col-12 col-md-7" } })
-                                        @Html.ValidationMessageFor(model => item.element_id, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.eRECIPE[i].element_id, new { htmlAttributes = new { @class = "form-control col-12 col-md-7" } })
+                                        @Html.ValidationMessageFor(model => model.eRECIPE[i].element_id, "", new { @class = "text-danger" })
 
-                                        @Html.EditorFor(model => item.qty, new { htmlAttributes = new { @class = "form-control col-12 offset-md-1 col-md-4" } })
-                                        @Html.ValidationMessageFor(model => item.qty, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.eRECIPE[i].qty, new { htmlAttributes = new { @class = "form-control col-12 offset-md-1 col-md-4" } })
+                                        @Html.ValidationMessageFor(model => model.eRECIPE[i].qty, "", new { @class = "text-danger" })
                                     }
                                 </fieldset>
                             </div>
@@ -80,12 +71,15 @@
                             <div class="col-12">
                                 <fieldset id="stepEditor" class="row">
                                     <legend style="text-align: left;">步驟</legend>
-                                    @foreach (var item in Model.sRECIPE)
+                                    @for (int i = 0; i < Model.sRECIPE.Count; i++)
                                     {
-                                        <h4 class="col-12 col-md-1">@i</h4>
-                                        @Html.TextAreaFor(model => item.step_body, new { @class = "form-control col-12 col-md-10", @maxlength = "250" })
-                                        @Html.ValidationMessageFor(model => item.step_body, "", new { @class = "text-danger" })
-                                        i++;
+                                        @*<h4 class="col-12 col-md-1">@item.step_id</h4>*@
+
+                                        @Html.EditorFor(model => model.sRECIPE[i].step_id, new { htmlAttributes = new { @class = "form-control col-12 col-md-1" } })
+                                        @Html.ValidationMessageFor(model => model.sRECIPE[i].step_id, "", new { @class = "text-danger" })
+
+                                        @Html.TextAreaFor(model => model.sRECIPE[i].step_body, new { @class = "form-control col-12 offset-md-1 col-md-10", @maxlength = "250" })
+                                        @Html.ValidationMessageFor(model => model.sRECIPE[i].step_body, "", new { @class = "text-danger" })
                                     }
                                 </fieldset>
                             </div>
@@ -97,16 +91,9 @@
                                 @Html.ActionLink("返回列表", "MyList", "Recipe", null, new { @class = "table-btn" })
                             </div>
                         </div>
-
-
-                        <div>
-
-                        </div>
-
                         @section Scripts {
                             @Scripts.Render("~/bundles/jqueryval")
                         }
-
                     </div>
                 </div>
             </div>
