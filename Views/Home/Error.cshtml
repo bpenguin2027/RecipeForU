@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Oops";
+}
+
+
+<section class="section-404">
+    <div class="text-404">
+        <h1>@ViewBag.Title</h1>
+        <h3>噢不，我們出了一點小問題！</h3>
+        <p>您所查詢的頁面可能不存在或已改名，麻煩到別的地方找看看噢！</p>
+        @Html.ActionLink("返回首頁", "Index", "Home", null, new { @class = "site-btn" })
+    </div>
+</section>

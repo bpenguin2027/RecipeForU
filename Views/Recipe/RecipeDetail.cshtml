@@ -1,0 +1,161 @@
+﻿@model RecipeForU.Models.ViewModel.RecipeDetailViewModel
+@using DevStudio;
+@using RecipeForU.Models;
+@using System.Globalization;
+@{
+    ViewBag.Title = Model.RECIPE.recipe_name;
+    string rc_photo = "";
+    if (Model != null)
+    {
+        rc_photo = ImageGetService.GetRecipeImage(Model.RECIPE.recipe_id);
+    }
+
+    string monthToEn(DateTime publishDate)
+    {
+        return publishDate.ToString("MMM", CultureInfo.CreateSpecificCulture("en-US"));
+    }
+}
+@section scripts
+{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.js")
+}
+<section class="single-post spad">
+    <div class="single-post__hero set-bg" data-setbg="@Url.Content(@rc_photo)"></div>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8">
+                <div class="single-post__title">
+                    <div class="single-post__title__meta">
+                        <h2>@Model.RECIPE.time.Day</h2>
+                        <span>@monthToEn(@Model.RECIPE.time)</span>
+                    </div>
+                    <div class="single-post__title__text">
+                        <ul class="label">
+                            <li>甜點</li>
+                            <li>新手村</li>
+                        </ul>
+                        <h4>@ViewBag.Title</h4>
+
+                        <ul class="widget">
+                            <li>by @RecipeDetailService.GetRecipeAuthorById(Model.RECIPE.recipe_id)</li>
+                            <li>上傳日期：@Model.RECIPE.time</li>
+                            <li>觀看次數：@Model.RECIPE.view_times</li>
+                        </ul>
+                        @if (UserAccount.UserNo != "")
+                        {
+                            <table>
+                                <tr>
+                                    @*@if (Model.Favored)
+                                    {*@
+                                        <td><span class="delfavor" style="color:coral; cursor:pointer"><i class="fa fa-heart" aria-hidden="true"></i></span><input type="hidden" value="@Model.RECIPE.recipe_id" /></td>
+                                    }
+                                    @*else
+                                    {
+                                        <td><span class="addfavor" style="color:coral; cursor:pointer"><i class="fa fa-heart-o" aria-hidden="true"></i></span><input type="hidden" value="@Model.RECIPE.recipe_id" /></td>
+                                    }*@
+                                </tr>
+                            </table>
+                        }
+                    </div>
+                </div>
+                <div class="single-post__social__item">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                    </ul>
+                </div>
+                <div class="single-post__top__text">
+                    <img src="@Url.Content("~/foodeiblog/img/categories/categories-post/quote.png")" alt="">
+                    <p>
+                        @Model.RECIPE.recipe_intro
+                    </p>
+                    <img src="@Url.Content("~/foodeiblog/img/categories/categories-post/quote.png")" class="transimg" alt="">
+
+                </div>
+                <div class="single-post__recipe__details">
+                    <div class="single-post__recipe__details__option">
+                        <h4>食材</h4>
+                    </div>
+                    <div class="single-post__recipe__details__indegradients">
+                        <div class="row">
+                            @foreach (var item in Model.eRECIPE)
+                            {
+                                <div class="col-6 col-md-4 elements">@item.element_id</div>
+                                <div class="col-6 col-md-2 elements qty elements-line">@item.qty</div>
+                            }
+                        </div>
+                    </div>
+                    <div class="single-post__recipe__details__option">
+                        <h4>步驟</h4>
+                    </div>
+                    <div class="single-post__recipe__details__direction">
+                        @foreach (var item in Model.sRECIPE)
+                        {
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4>@item.step_id</h4>
+                                    <p>@item.step_body</p>
+                                </div>
+                                <div class="col-6">
+                                    <a href="@Url.Content(@ImageGetService.GetStepImage(item.step_cover))">
+                                        <img class="mainimage" src="@Url.Content(@ImageGetService.GetStepImage(item.step_cover))" style="max-width: 100%;width: 400px;" />
+                                    </a>
+                                </div>
+                            </div>
+                            <hr />
+                        }
+                    </div>
+                </div>
+                @Html.ActionLink("返回列表", "Index", "Recipes", null, new { @class = "site-btn d-flex justify-content-center" })
+                @*<div class="single-post__tags">
+                    <a href="#">甜點</a>
+                    <a href="#">新手村</a>
+                </div>*@
+            </div>
+        </div>
+    </div>
+</section>
+<!-- JS includes -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/mvc/4.0/jquery.validate.unobtrusive.min.js"></script>
+
+<script type="text/javascript">
+    $(document).on("click", ".addfavor", (function () {
+        var id = $(this).siblings().val();
+        $(this).removeClass().addClass("delfavor");
+        $(this).children().removeClass().addClass("fa fa-heart");
+        $.ajax({
+            type: "post",
+            url: "/Recipe/Put",
+            data: { id: id },
+            success: function (result) {
+                if (result == 2) {
+                    alert("已加入收藏");
+                }
+            }
+        })
+    }))
+
+    $(document).on("click", ".delfavor", (function () {
+        var id = $(this).siblings().val();
+        $(this).removeClass().addClass("addfavor");
+        $(this).children().removeClass().addClass("fa fa-heart-o");
+        $.ajax({
+            type: "post",
+            url: "/Recipe/Pop",
+            data: { id: id },
+            success: function (result) {
+                if (!result) {
+                    alert("已取消收藏");
+                }
+            }
+        })
+    }))
+</script>
+
+

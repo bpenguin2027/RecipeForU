@@ -230,7 +230,7 @@ fieldset #textbox_intro,
 }
 
 #TextBoxesGroupx input,
-#elementEditor input {
+#ElementEditor input {
     margin-top: 5px;
     padding: 0 0.75rem;
     height: calc(2em + 1rem + 2px);
@@ -239,7 +239,7 @@ fieldset #textbox_intro,
     display: inline-block;
 }
 
-#stepEditor {
+#StepEditor {
     text-align: center;
 }
 
@@ -252,7 +252,7 @@ fieldset #textbox_intro,
     border: 0px;
 }
 
-#stepEditor textarea {
+#StepEditor textarea {
     margin-top: 5px;
     padding: 0.5rem 0.75rem;
     height: calc(2em + 3rem + 2px);
@@ -261,7 +261,7 @@ fieldset #textbox_intro,
     border: 0px;
 }
 
-#stepEditor h4 {
+#StepEditor h4 {
     display: inline;
     font-size: 26px;
     line-height: 42px;
@@ -487,7 +487,9 @@ a.primary-btn {
         color: #000;
     }
 
-#addButton, #addButtonx, #removeButton, #removeButtonx {
+/* ¦Û­q¼W´î«ö¶s */
+#addButton, #addButtonx, #removeButton, #removeButtonx,
+#AddElementButton, #RemoveElementButton, #AddStepButton, #RemoveStepButton {
     padding: 0;
     padding: 10px 0px 10px 24px;
     font-size: 20px;
@@ -497,7 +499,8 @@ a.primary-btn {
     transition: all, 0.2s;
 }
 
-    #addButton:hover, #addButtonx:hover, #removeButton:hover, #removeButtonx:hover {
+    #addButton:hover, #addButtonx:hover, #removeButton:hover, #removeButtonx:hover,
+    #AddElementButton:hover, #RemoveElementButton:hover, #AddStepButton:hover, #RemoveSteptButton:hover {
         color: #f4952f;
     }
 
@@ -3433,7 +3436,6 @@ a.primary-btn {
         font-size: 200px;
         font-weight: 700;
         color: #ffffff;
-        line-height: 192px;
     }
 
     .text-404 h3 {
@@ -3447,11 +3449,11 @@ a.primary-btn {
         margin-bottom: 35px;
     }
 
-    .text-404 form {
-        width: 470px;
-        position: relative;
-        margin: 0 auto;
-    }
+.text-404 form {
+    width: 470px;
+    position: relative;
+    margin: 0 auto;
+}
 
         .text-404 form input {
             width: 100%;
@@ -3881,7 +3883,7 @@ a.primary-btn {
         height: 180px;
     }
 
-    #stepEditor h4 {
+    #StepEditor h4 {
         margin: 0;
     }
 }

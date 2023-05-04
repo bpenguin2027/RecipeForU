@@ -35,8 +35,8 @@ namespace RecipeForU.Models
             public string member_name { get; set; }
 
             [Display(Name = "電話")]
-            [Required(ErrorMessage = "請填寫10碼市話或行動電話")]
-            [RegularExpression(@"(\d){10}", ErrorMessage = "請填寫10碼市話或行動電話")]
+            [Required(ErrorMessage = "請填寫10碼行動電話")]
+            [RegularExpression(@"(\d){4}-(\d){3}-(\d){3}", ErrorMessage = "請填寫10碼行動電話")]
             public string phone { get; set; }
 
             [Display(Name = "性別")]

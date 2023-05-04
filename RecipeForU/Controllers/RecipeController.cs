@@ -31,26 +31,6 @@ namespace RecipeForU.Controllers
         }
 
         /// <summary>
-        /// 食譜資料舊版
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [AllowAnonymous]
-        [HttpGet]
-        public ActionResult Detail(int id = 0)
-        {
-            if (id == 0) return View(new RECIPE());
-            using (RecipeForUEntities db = new RecipeForUEntities())
-            {
-                var data = db.RECIPE.Where(m => m.rowid == id).FirstOrDefault();
-                data.view_times += 1;
-                db.SaveChanges();
-                if (data != null) return View(data);
-                return RedirectToAction("Index", "Home");
-            }
-        }
-
-        /// <summary>
         /// 食譜資料新版，如果將id修改為recipe_id，recipe_id和step_id格式不統一
         /// </summary>
         /// <param name="id"></param>
@@ -59,6 +39,7 @@ namespace RecipeForU.Controllers
         [HttpGet]
         public ActionResult RecipeDetail(string id)
         {
+            if (id == null) return RedirectToAction("Index", "Home");
             RecipeDetailViewModel RecipeDatas = new RecipeDetailViewModel();
             RecipeDatas.RECIPE = RecipeDetailService.GetRecipeById(id);
             RecipeDatas.sRECIPE = RecipeDetailService.GetRecipeStepsById(id);
@@ -88,7 +69,7 @@ namespace RecipeForU.Controllers
         /// 修改食譜新版
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="model"></param>
+        /// <param name="RecipeDatas"></param>
         /// <returns></returns>
         [HttpPost]
         [LoginAuthorize(RoleList = "Admin,User")]
@@ -98,49 +79,6 @@ namespace RecipeForU.Controllers
             RecipeDetailService.EditRecipeElements(id, RecipeDatas.eRECIPE);
             RecipeDetailService.EditRecipeSteps(id, RecipeDatas.sRECIPE);
             return View("MyList", "Recipe");
-        }
-
-        /// <summary>
-        /// 修改食譜舊版
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpGet]
-        [LoginAuthorize(RoleList = "Admin")]
-        public ActionResult Edit(string id)
-        {
-            using (RecipeForUEntities db = new RecipeForUEntities())
-            {
-                var data = db.RECIPE.Where(m => m.recipe_id == id).FirstOrDefault();
-                if (data == null) return RedirectToAction("MyList", "Recipe");
-                return View(data);
-            }
-        }
-        /// <summary>
-        /// 修改食譜舊版
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [LoginAuthorize(RoleList = "Admin")]
-        public ActionResult Edit(RECIPE model)
-        {
-            if (!ModelState.IsValid) return View(model);
-            using (RecipeForUEntities db = new RecipeForUEntities())
-            {
-                var data = db.RECIPE.Where(m => m.recipe_id == model.recipe_id).FirstOrDefault();
-                if (data == null) return View(model);
-                data.recipe_author = model.recipe_author;
-                data.recipe_cover = model.recipe_cover;
-                data.recipe_id = model.recipe_id;
-                data.recipe_intro = model.recipe_intro;
-                data.recipe_name = model.recipe_name;
-                data.rowid = model.rowid;
-                data.time = model.time;
-                data.view_times = model.view_times;
-                db.SaveChanges();
-                return RedirectToAction("MyList", "Recipe");
-            }
         }
 
         /// <summary>

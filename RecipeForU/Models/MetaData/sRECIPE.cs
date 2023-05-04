@@ -19,6 +19,7 @@ namespace RecipeForU.Models
             [Display(Name = "食譜代號")]
             public string recipe_id { get; set; }
             [Display(Name = "步驟說明")]
+            [Required(ErrorMessage = "步驟說明不可空白")]
             public string step_body { get; set; }
             [Display(Name = "步驟畫面")]
             public string step_cover { get; set; }

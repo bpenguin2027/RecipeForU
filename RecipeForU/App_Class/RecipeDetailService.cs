@@ -11,7 +11,7 @@ using RecipeForU.Models;
 public class RecipeDetailService
 {
     /// <summary>
-    /// 透過id對應食譜
+    /// 透過id取得食譜
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
@@ -25,7 +25,7 @@ public class RecipeDetailService
     }
 
     /// <summary>
-    /// 透過id對應食譜步驟
+    /// 透過id取得食譜步驟
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
@@ -44,7 +44,7 @@ public class RecipeDetailService
     }
 
     /// <summary>
-    /// 透過id對應食材
+    /// 透過id取得食材
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
@@ -63,7 +63,7 @@ public class RecipeDetailService
     }
 
     /// <summary>
-    /// 透過id對應作者
+    /// 透過id取得作者
     /// </summary>
     /// <param name="recipe_id"></param>
     /// <returns></returns>
@@ -166,11 +166,18 @@ public class RecipeDetailService
     /// <param name="recipe_id"></param>
     public static void AddViewTimes(string id)
     {
-        using (RecipeForUEntities db = new RecipeForUEntities())
+        try
         {
-            var data = db.RECIPE.Where(m => m.recipe_id == id).FirstOrDefault();
-            data.view_times += 1;
-            db.SaveChanges();
+            using (RecipeForUEntities db = new RecipeForUEntities())
+            {
+                var data = db.RECIPE.Where(m => m.recipe_id == id).FirstOrDefault();
+                data.view_times += 1;
+                db.SaveChanges();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
         }
     }
 

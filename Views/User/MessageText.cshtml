@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "訊息";
+}
+
+<div class="signin form-horizontal">
+    <div class="signin__warp">
+        <div class="signin__content">
+            <div class="signin__logo">
+                <a href="#"><img src="@Url.Content("~/foodeiblog/img/siign-in-logo.png")" alt=""></a>
+            </div>
+            <p>
+                很高興見到你，讓我們一起將料理變得簡單有趣吧！
+            </p>
+            <div class="signin__form">
+                <div class="tab-content">
+                    <div class="tab-pane active" role="tabpanel">
+                        <div class="signin__form__text">
+                            <div class="panel panel-default box-shadow">
+
+                                <div class="panel-heading">
+                                    <span class="text-muted pull-right today" title="Today"></span>
+                                </div>
+                                <div class="panel-body">
+                                    <h4>
+                                        @ViewBag.MessageText
+                                    </h4>
+                                    <hr />
+                                    @Html.ActionLink("返回首頁", "Index", "Home", null, new { @class = "site-btn" })
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

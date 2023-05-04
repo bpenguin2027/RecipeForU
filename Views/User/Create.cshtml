@@ -1,0 +1,130 @@
+﻿@model RecipeForU.Models.MEMBER
+
+@{
+    ViewBag.Title = "會員資料新增";
+}
+@section scripts{
+
+    <script src="@Url.Content("~/Scripts/datepicker.js")"></script>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="signin form-horizontal">
+        <div class="signin__warp">
+            <div class="signin__content">
+                <div class="signin__logo">
+                    <a href="#"><img src="@Url.Content("~/foodeiblog/img/siign-in-logo.png")" alt=""></a>
+                </div>
+                <hr />
+                <div class="signin__form">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item edit">
+                            @Html.ActionLink("新增會員", "Create", "User", null, new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item">
+                    </ul>
+                    <div class="tab-content">
+                        <!-- 新增會員表單 -->
+                        <div class="tab-pane active" role="tabpanel">
+                            <div class="signin__form__text">
+                                <form action="#">
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.member_id)
+                                    @Html.HiddenFor(model => model.is_valid)
+                                    @Html.HiddenFor(model => model.member_type)
+
+                                    <div class="form-group">
+                                        <div class="col-12 col-md-6 offset-md-3">
+                                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email" } })
+                                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-12 col-md-6 offset-md-3">
+                                            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", @placeholder = "密碼（長度至少為8個字元）" } })
+                                            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-12 col-md-6 offset-md-3">
+                                            @Html.EditorFor(model => model.member_name, new { htmlAttributes = new { @class = "form-control", @placeholder = "姓名" } })
+                                            @Html.ValidationMessageFor(model => model.member_name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-12 col-md-6 offset-md-3">
+                                            @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control", @placeholder = "電話（格式：0910123456）" } })
+                                            @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-12 col-md-6 offset-md-3">
+                                            @Html.EditorFor(model => model.gender, new { htmlAttributes = new { @class = "form-control", @placeholder = "性別（1/男，2/女，3/其他）" } })
+                                            @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-12 col-md-6 offset-md-3">
+                                            @Html.EditorFor(model => model.birthday, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                                            @Html.ValidationMessageFor(model => model.birthday, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-12 col-md-6 offset-md-3">
+                                            @Html.EditorFor(model => model.occupation, new { htmlAttributes = new { @class = "form-control", @placeholder = "職業" } })
+                                            @Html.ValidationMessageFor(model => model.occupation, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-12 col-md-6 offset-md-3">
+                                            @Html.EditorFor(model => model.aka, new { htmlAttributes = new { @class = "form-control", @placeholder = "備註" } })
+                                            @Html.ValidationMessageFor(model => model.aka, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-12 col-md-6 offset-md-3">
+                                            <div class="row">
+                                                <div class="col-12 col-md-5">
+                                                    <button type="submit" class="site-btn">新增</button>
+                                                </div>
+                                                <div class="col-12 col-md-7">
+                                                    @Html.ActionLink("返回列表", "List", "User", null, new { @class = "table-btn" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

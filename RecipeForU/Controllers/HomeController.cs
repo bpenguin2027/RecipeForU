@@ -14,6 +14,12 @@ namespace RecipeForU.Controllers
             return View();
         }
 
+        [AllowAnonymous]
+        public ActionResult Error()
+        {
+            return View();
+        }
+
         [LoginAuthorize(RoleList = "User,Admin")]
         public ActionResult Dashboard()
         {

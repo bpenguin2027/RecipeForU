@@ -15,6 +15,7 @@ namespace RecipeForU.Models
             [Display(Name = "食譜ID")]
             public string recipe_id { get; set; }
             [Display(Name = "食譜名稱")]
+            [Required(ErrorMessage = "食譜名稱不可空白")]
             public string recipe_name { get; set; }
             [Display(Name = "食譜作者")]
             public string recipe_author { get; set; }

@@ -17,10 +17,10 @@ namespace RecipeForU.Models
             [Display(Name = "食譜代號")]
             public string recipe_id { get; set; }
             [Display(Name = "食材名稱")]
-            [Required(ErrorMessage = "食材名稱不可空白!!")]
+            [Required(ErrorMessage = "食材名稱不可空白")]
             public string element_id { get; set; }
             [Display(Name = "食材用量")]
-            [Required(ErrorMessage = "食材用量不可空白!!")]
+            [Required(ErrorMessage = "食材用量不可空白")]
             public string qty { get; set; }
         }
     }

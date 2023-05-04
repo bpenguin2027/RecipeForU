@@ -1,8 +1,8 @@
 ﻿@model RecipeForU.Models.ViewModel.RecipeDetailViewModel
+<script src="@Url.Content("~/Scripts/TextBoxAdd.js")"></script>
 
 @{
     ViewBag.Title = "修改食譜";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @using (Html.BeginForm("EditRecipeDetail", "Recipe", new { id = Model.RECIPE.recipe_id }, FormMethod.Post, null))
@@ -16,7 +16,6 @@
                         <div class="col-12 d-flex justify-content-center align-items-center admin-list-title">@ViewBag.Title</div>
                     </div>
                     <div class="panel-body admin-list-body">
-
                         <div class="row">
                             <div class="col-12">
                                 <fieldset>
@@ -35,7 +34,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-12 col-md-10">
-                                                    @Html.TextAreaFor(model => model.RECIPE.recipe_intro, new { htmlAttributes = new { @class = "form-control", @id = "recipe_intro", @placeholder = "請輸入食譜介紹，上限為250字", @maxlength = "250" } })
+                                                    @Html.TextAreaFor(model => model.RECIPE.recipe_intro, new { @class = "form-control", @id = "recipe_intro", @placeholder = "請輸入食譜介紹，上限為250字", @maxlength = "250" })
                                                     @Html.ValidationMessageFor(model => model.RECIPE.recipe_intro, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
@@ -53,37 +52,46 @@
 
                         <div class="row">
                             <div class="col-12">
-                                <fieldset id="elementEditor" class="row">
+                                <fieldset id="ElementEditor" class="row">
                                     <legend>食材</legend>
                                     @for (int i = 0; i < Model.eRECIPE.Count; i++)
                                     {
-                                        @Html.EditorFor(model => model.eRECIPE[i].element_id, new { htmlAttributes = new { @class = "form-control col-12 col-md-7" } })
-                                        @Html.ValidationMessageFor(model => model.eRECIPE[i].element_id, "", new { @class = "text-danger" })
+                                        <div id="ElementScope@(i)" class="col-12">
+                                            @Html.EditorFor(model => model.eRECIPE[i].element_id, new { htmlAttributes = new { @class = "form-control col-12 col-md-7", @placeholder = "食材" } })
+                                            @Html.ValidationMessageFor(model => model.eRECIPE[i].element_id, "", new { @class = "text-danger" })
 
-                                        @Html.EditorFor(model => model.eRECIPE[i].qty, new { htmlAttributes = new { @class = "form-control col-12 offset-md-1 col-md-4" } })
-                                        @Html.ValidationMessageFor(model => model.eRECIPE[i].qty, "", new { @class = "text-danger" })
+                                            @Html.EditorFor(model => model.eRECIPE[i].qty, new { htmlAttributes = new { @class = "form-control col-12 col-md-4", @placeholder = "份量" } })
+                                            @Html.ValidationMessageFor(model => model.eRECIPE[i].qty, "", new { @class = "text-danger" })
+                                        </div>
                                     }
                                 </fieldset>
                             </div>
                         </div>
+                        @Html.Hidden("ElementCount", Model.eRECIPE.Count - 1)
+                        <input type="button" value='&#8853;' id='AddElementButton'>
+                        <input type="button" value='&#8854;' id='RemoveElementButton'>
 
                         <div class="row">
                             <div class="col-12">
-                                <fieldset id="stepEditor" class="row">
+                                <fieldset id="StepEditor" class="row">
                                     <legend style="text-align: left;">步驟</legend>
                                     @for (int i = 0; i < Model.sRECIPE.Count; i++)
                                     {
                                         @*<h4 class="col-12 col-md-1">@item.step_id</h4>*@
+                                        <div id="StepScope@(i)" class="col-12">
+                                            @Html.EditorFor(model => model.sRECIPE[i].step_id, new { htmlAttributes = new { @class = "form-control col-12 col-md-1" } })
+                                            @Html.ValidationMessageFor(model => model.sRECIPE[i].step_id, "", new { @class = "text-danger" })
 
-                                        @Html.EditorFor(model => model.sRECIPE[i].step_id, new { htmlAttributes = new { @class = "form-control col-12 col-md-1" } })
-                                        @Html.ValidationMessageFor(model => model.sRECIPE[i].step_id, "", new { @class = "text-danger" })
-
-                                        @Html.TextAreaFor(model => model.sRECIPE[i].step_body, new { @class = "form-control col-12 offset-md-1 col-md-10", @maxlength = "250" })
-                                        @Html.ValidationMessageFor(model => model.sRECIPE[i].step_body, "", new { @class = "text-danger" })
+                                            @Html.TextAreaFor(model => model.sRECIPE[i].step_body, new { @class = "form-control col-12 offset-md-1 col-md-10", @maxlength = "250" })
+                                            @Html.ValidationMessageFor(model => model.sRECIPE[i].step_body, "", new { @class = "text-danger" })
+                                        </div>
                                     }
                                 </fieldset>
                             </div>
                         </div>
+                        @Html.Hidden("StepCount", Model.sRECIPE.Count - 1)
+                        <input type="button" value='&#8853;' id='AddStepButton'>
+                        <input type="button" value='&#8854;' id='RemoveStepButton'>
 
                         <div class="row" style="margin-top:1em;">
                             <div class="col d-flex justify-content-center">
@@ -91,9 +99,6 @@
                                 @Html.ActionLink("返回列表", "MyList", "Recipe", null, new { @class = "table-btn" })
                             </div>
                         </div>
-                        @section Scripts {
-                            @Scripts.Render("~/bundles/jqueryval")
-                        }
                     </div>
                 </div>
             </div>

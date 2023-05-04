@@ -1,0 +1,16 @@
+﻿<li class="dropdown">
+    <a href="#">
+        <span><i class="fa fa-user-o user"></i>@UserAccount.UserName</span>
+    </a>
+    <ul class="dropdown__menu">
+        <li class="submenu-item">
+            @Html.ActionLink("登出", "Login", "User", null, new { @class = "fa fa-sign-out pencil" })
+        </li>
+        <li class="submenu-item">
+            @Html.ActionLink("重設密碼", "ResetPassword", "User", null, new { @class = "fa fa-unlock-alt unlock" })
+        </li>
+        <li class="submenu-item">
+            @Html.ActionLink("修改會員資料", "EditMyInfo", "User", null, new { @class = "fa fa-pencil pencil" })
+        </li>
+    </ul>
+</li>
